@@ -1,0 +1,7 @@
+{
+  "name": "ar-core",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
