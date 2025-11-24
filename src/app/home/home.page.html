@@ -1,3 +1,29 @@
-<ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="openAR()">
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      AR Launcher
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-</ion-fab>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">AR Launcher</ion-title>
+    </ion-toolbar>
+  </ion-header>
+    <ion-button expand="block" (click)="openAR('box')">
+      <ion-icon slot="start" name="cube"></ion-icon>
+      Show Box
+    </ion-button>
+
+    <ion-button expand="block" color="secondary" (click)="openAR('image')">
+      <ion-icon slot="start" name="image"></ion-icon>
+      Show Image
+    </ion-button>
+
+    <ion-button expand="block" color="tertiary" (click)="openAR('sphere')">
+      <ion-icon slot="start" name="planet"></ion-icon>
+      Show Sphere
+    </ion-button>
+</ion-content>

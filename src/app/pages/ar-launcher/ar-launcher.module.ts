@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ArLauncherPageRoutingModule } from './ar-launcher-routing.module';
+
 
 import { ArLauncherPage } from './ar-launcher.page';
 
@@ -12,9 +12,9 @@ import { ArLauncherPage } from './ar-launcher.page';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
-    ArLauncherPageRoutingModule
+    IonicModule
   ],
-  declarations: [ArLauncherPage]
+  declarations: [ArLauncherPage],
+  exports: [ArLauncherPage]
 })
-export class ArLauncherPageModule {}
+export class ArLauncherPageModule { }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ar-launcher',
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArLauncherPage implements OnInit {
 
-  constructor() { }
+  @Input() arType: string = 'box';
+  safeUrl: SafeResourceUrl | undefined;
+
+  constructor(private modalCtrl: ModalController, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    const url = `./assets/aframe-ar.html?type=${this.arType}`;
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
+  async close() {
+    await this.modalCtrl.dismiss();
+  }
 }

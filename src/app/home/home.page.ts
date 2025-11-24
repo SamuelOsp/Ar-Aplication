@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+
+import { ArLauncherPage } from '../pages/ar-launcher/ar-launcher.page';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +11,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(
+    private modalController: ModalController
+  ) { }
 
+  async openAR(type: string) {
+    const modal: HTMLIonModalElement = await this.modalController.create({
+      component: ArLauncherPage,
+      componentProps: {
+        arType: type
+      }
+    });
+
+    return await modal.present();
+  }
 }
