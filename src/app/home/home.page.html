@@ -1,29 +1,46 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      AR Launcher
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ar-background">
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">AR Launcher</ion-title>
-    </ion-toolbar>
-  </ion-header>
-    <ion-button expand="block" (click)="openAR('box')">
-      <ion-icon slot="start" name="cube"></ion-icon>
-      Show Box
-    </ion-button>
+  <!-- HUD Overlay -->
+  <div class="hud-container">
+    <div class="corner top-left"></div>
+    <div class="corner top-right"></div>
+    <div class="corner bottom-left"></div>
+    <div class="corner bottom-right"></div>
 
-    <ion-button expand="block" color="secondary" (click)="openAR('image')">
-      <ion-icon slot="start" name="image"></ion-icon>
-      Show Image
-    </ion-button>
+    <!-- Scan line removed by user request -->
 
-    <ion-button expand="block" color="tertiary" (click)="openAR('sphere')">
-      <ion-icon slot="start" name="planet"></ion-icon>
-      Show Sphere
-    </ion-button>
+    <div class="content-center">
+      <div class="logo-container">
+        <ion-icon name="cube-outline" class="ar-logo"></ion-icon>
+        <div class="pulse-ring"></div>
+      </div>
+
+      <h1 class="glitch-text">AR CORE</h1>
+      <p class="status-text">SYSTEM READY</p>
+
+      <div class="targets-preview">
+        <span class="badge">HIRO</span>
+        <span class="badge">KANJI</span>
+        <span class="badge">BARCODE</span>
+      </div>
+
+      <ion-button class="start-btn" expand="block" (click)="openAR()">
+        <ion-icon slot="start" name="scan-outline"></ion-icon>
+        INITIALIZE SCAN
+      </ion-button>
+
+      <ion-button fill="outline" color="secondary" expand="block" style="margin-top: 10px;" (click)="addTarget()">
+        <ion-icon slot="start" name="add-circle"></ion-icon>
+        ADD NEW TARGET
+      </ion-button>
+
+      <div style="margin-top: 20px;">
+        <a href="/assets/barcodes.html" target="_blank"
+          style="color: var(--ion-color-primary); text-decoration: none; font-size: 0.8rem; border: 1px solid var(--ion-color-primary); padding: 5px 10px;">
+          [ GET MARKERS ]
+        </a>
+      </div>
+    </div>
+  </div>
+
 </ion-content>

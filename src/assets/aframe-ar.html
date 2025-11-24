@@ -4,70 +4,96 @@
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
 <body style="margin: 0px; overflow: hidden;">
-    <!-- On-screen Debug Console -->
-    <div id="debug-console"
-        style="position: fixed; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: lime; padding: 10px; font-family: monospace; z-index: 9999; pointer-events: none;">
-        Initializing...
-    </div>
-
     <script>
-        function log(msg) {
-            const consoleDiv = document.getElementById('debug-console');
-            consoleDiv.innerHTML += '<br>' + msg;
-            console.log(msg);
-        }
+        // ---------------------------------------------------------
+        // CONFIGURACIÓN: Carga dinámica desde LocalStorage
+        // ---------------------------------------------------------
+        const defaultTargets = [
+            {
+                markerType: 'hiro',
+                content: { type: 'image', src: 'imagetarget.jpg' }
+            },
+            {
+                markerType: 'kanji',
+                content: { type: 'box', color: 'yellow', opacity: 0.8 }
+            },
+            {
+                markerType: 'barcode',
+                value: 5,
+                content: { type: 'cylinder', color: 'green', height: 1, radius: 0.5 }
+            },
+            {
+                markerType: 'barcode',
+                value: 10,
+                content: { type: 'torus', color: 'purple', radius: 0.5, animation: 'property: rotation; to: 0 360 0; loop: true; dur: 3000' }
+            }
+        ];
 
-        AFRAME.registerComponent('dynamic-content', {
+        // Intentar cargar desde la memoria del teléfono (LocalStorage)
+        // Si no hay nada, usar los por defecto.
+        const storedTargets = localStorage.getItem('arTargets');
+        const targets = storedTargets ? JSON.parse(storedTargets) : defaultTargets;
+
+        // ---------------------------------------------------------
+        // LÓGICA: Generación Automática (No tocar)
+        // ---------------------------------------------------------
+        AFRAME.registerComponent('scene-generator', {
             init: function () {
-                const params = new URLSearchParams(window.location.search);
-                const type = params.get('type') || 'box';
-                const marker = this.el;
+                const scene = this.el;
+                console.log('Generando ' + targets.length + ' targets dinámicamente...');
 
-                log('Init. Type: ' + type);
+                targets.forEach(target => {
+                    let marker;
 
-                // Marker Events
-                marker.addEventListener('markerFound', function () {
-                    log('SUCCESS: Marker Found!');
+                    // 1. Crear el Marcador
+                    if (target.markerType === 'barcode') {
+                        marker = document.createElement('a-marker');
+                        marker.setAttribute('type', 'barcode');
+                        marker.setAttribute('value', target.value);
+                    } else {
+                        marker = document.createElement('a-marker');
+                        marker.setAttribute('preset', target.markerType);
+                    }
+
+                    // 2. Crear el Contenido
+                    let contentElement;
+                    const c = target.content;
+
+                    if (c.type === 'image') {
+                        contentElement = document.createElement('a-image');
+                        contentElement.setAttribute('src', c.src);
+                        contentElement.setAttribute('rotation', '-90 0 0');
+                        contentElement.setAttribute('width', '2');
+                        contentElement.setAttribute('height', '2');
+                    } else {
+                        // Para figuras geométricas (box, sphere, cylinder, etc)
+                        contentElement = document.createElement('a-' + c.type);
+                        contentElement.setAttribute('position', '0 0.5 0');
+
+                        // Asignar atributos dinámicamente (color, radius, etc)
+                        Object.keys(c).forEach(key => {
+                            if (key !== 'type') {
+                                if (key === 'animation') {
+                                    contentElement.setAttribute('animation', c[key]);
+                                } else if (key === 'material') {
+                                    contentElement.setAttribute('material', c[key]);
+                                } else {
+                                    contentElement.setAttribute(key, c[key]);
+                                }
+                            }
+                        });
+                    }
+
+                    // 3. Unir y agregar a la escena
+                    marker.appendChild(contentElement);
+                    scene.appendChild(marker);
                 });
-                marker.addEventListener('markerLost', function () {
-                    log('Status: Marker Lost');
-                });
-
-                let content;
-                if (type === 'box') {
-                    content = document.createElement('a-box');
-                    content.setAttribute('position', '0 0.5 0');
-                    content.setAttribute('material', 'color: red; opacity: 0.8;');
-                    content.setAttribute('scale', '0.5 0.5 0.5');
-                } else if (type === 'sphere') {
-                    content = document.createElement('a-sphere');
-                    content.setAttribute('position', '0 0.5 0');
-                    content.setAttribute('radius', '0.5');
-                    content.setAttribute('material', 'color: blue; opacity: 0.8;');
-                } else if (type === 'image') {
-                    content = document.createElement('a-image');
-                    content.setAttribute('src', 'imagetarget.jpg');
-                    content.setAttribute('rotation', '-90 0 0');
-                    content.setAttribute('width', '2');
-                    content.setAttribute('height', '2');
-                }
-
-                if (content) {
-                    log('Content created: ' + content.tagName);
-                    marker.appendChild(content);
-                } else {
-                    log('ERROR: No content for type ' + type);
-                }
             }
         });
     </script>
-    <a-scene embedded
-        arjs='sourceType: webcam; debugUIEnabled: false; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;'>
-        <a-marker preset="hiro" dynamic-content>
-            <!-- Debug Border: Yellow Ring -->
-            <a-ring radius-inner="1" radius-outer="1.1" color="yellow" rotation="-90 0 0"></a-ring>
-            <!-- Content injected via JS -->
-        </a-marker>
+
+    <a-scene embedded scene-generator
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;'>
         <a-entity camera></a-entity>
     </a-scene>
 </body>

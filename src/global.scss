@@ -35,3 +35,43 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* AR Core Theme - Futuristic/Dark */
+:root {
+    --ion-color-primary: #00f3ff;
+    /* Neon Cyan */
+    --ion-color-primary-rgb: 0, 243, 255;
+    --ion-color-primary-contrast: #000000;
+    --ion-color-primary-contrast-rgb: 0, 0, 0;
+    --ion-color-primary-shade: #00d6e0;
+    --ion-color-primary-tint: #1af4ff;
+
+    --ion-color-secondary: #ff00ff;
+    /* Neon Magenta */
+    --ion-color-secondary-rgb: 255, 0, 255;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
+    --ion-color-secondary-shade: #e000e0;
+    --ion-color-secondary-tint: #ff1aff;
+
+    --ion-color-tertiary: #7044ff;
+    /* Deep Purple */
+    --ion-color-tertiary-rgb: 112, 68, 255;
+    --ion-color-tertiary-contrast: #ffffff;
+    --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+    --ion-color-tertiary-shade: #633ce0;
+    --ion-color-tertiary-tint: #7e57ff;
+
+    --ion-background-color: #050510;
+    /* Deep Space Black */
+    --ion-background-color-rgb: 5, 5, 16;
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255, 255, 255;
+
+    --ion-font-family: 'Courier New', Courier, monospace;
+    /* Tech font */
+}
+
+body {
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+}
