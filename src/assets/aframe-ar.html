@@ -8,29 +8,10 @@
         // ---------------------------------------------------------
         // CONFIGURACIÓN: Carga dinámica desde LocalStorage
         // ---------------------------------------------------------
-        const defaultTargets = [
-            {
-                markerType: 'hiro',
-                content: { type: 'image', src: 'imagetarget.jpg' }
-            },
-            {
-                markerType: 'kanji',
-                content: { type: 'box', color: 'yellow', opacity: 0.8 }
-            },
-            {
-                markerType: 'barcode',
-                value: 5,
-                content: { type: 'cylinder', color: 'green', height: 1, radius: 0.5 }
-            },
-            {
-                markerType: 'barcode',
-                value: 10,
-                content: { type: 'torus', color: 'purple', radius: 0.5, animation: 'property: rotation; to: 0 360 0; loop: true; dur: 3000' }
-            }
-        ];
+        const defaultTargets = [];
 
         // Intentar cargar desde la memoria del teléfono (LocalStorage)
-        // Si no hay nada, usar los por defecto.
+        // Si no hay nada, usar los por defecto (vacío).
         const storedTargets = localStorage.getItem('arTargets');
         const targets = storedTargets ? JSON.parse(storedTargets) : defaultTargets;
 

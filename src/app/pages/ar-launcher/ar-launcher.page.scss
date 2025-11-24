@@ -1,6 +1,188 @@
-iframe {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: none;
+/* AR Launcher Page - Premium Camera UI */
+
+.ar-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Camera Frame */
+.ar-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Header with Close Button */
+ion-header {
+    --background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    &::after {
+        display: none;
+        /* Remove header shadow */
+    }
+}
+
+ion-toolbar {
+    --background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    --border-width: 0;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+}
+
+/* Close Button */
+.close-btn {
+    --background: rgba(255, 0, 0, 0.2);
+    --background-hover: rgba(255, 0, 0, 0.3);
+    --border-radius: 50%;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+/* AR Status Overlay */
+.ar-status {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 900;
+
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 1px solid rgba(0, 243, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 243, 255, 0.2);
+
+    color: var(--ion-color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+        content: '●';
+        color: #00ff00;
+        animation: pulse 2s infinite;
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Scanning Guides (Corner Brackets) */
+.scan-guides {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    height: 50%;
+    max-height: 400px;
+    pointer-events: none;
+    z-index: 800;
+
+    &::before,
+    &::after,
+    &>span::before,
+    &>span::after {
+        content: '';
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(0, 243, 255, 0.6);
+    }
+
+    /* Top Left */
+    &::before {
+        top: 0;
+        left: 0;
+        border-right: none;
+        border-bottom: none;
+        border-top-left-radius: 8px;
+    }
+
+    /* Top Right */
+    &::after {
+        top: 0;
+        right: 0;
+        border-left: none;
+        border-bottom: none;
+        border-top-right-radius: 8px;
+    }
+
+    /* Bottom Left */
+    &>span::before {
+        bottom: 0;
+        left: 0;
+        border-right: none;
+        border-top: none;
+        border-bottom-left-radius: 8px;
+    }
+
+    /* Bottom Right */
+    &>span::after {
+        bottom: 0;
+        right: 0;
+        border-left: none;
+        border-top: none;
+        border-bottom-right-radius: 8px;
+    }
+}
+
+/* Instructions Text */
+.ar-instructions {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 850;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 80%;
 }
