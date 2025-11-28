@@ -9,37 +9,40 @@
 
     <!-- Scan line removed by user request -->
 
-    <div class="content-center">
-      <div class="logo-container">
-        <ion-icon name="cube-outline" class="ar-logo"></ion-icon>
-        <div class="pulse-ring"></div>
+    <div class="home-container">
+
+      <!-- Header Section -->
+      <div class="header-section">
+        <h1 class="app-title">AR Core</h1>
+        <p class="app-subtitle">Realidad Aumentada Dinámica</p>
+
+        <!-- Status Card -->
+        <div class="stats-card">
+          <ion-icon name="cloud-done-outline" class="stats-icon"></ion-icon>
+          <div class="stats-info">
+            <h3>Sincronizado</h3>
+            <p>Tus imágenes están listas</p>
+          </div>
+        </div>
       </div>
 
-      <h1 class="glitch-text">AR CORE</h1>
-      <p class="status-text">SYSTEM READY</p>
+      <!-- Actions Section (Bottom) -->
+      <div class="actions-section">
+        <ion-button class="start-btn button-large" expand="block" (click)="openAR()">
+          <ion-icon slot="start" name="scan-outline"></ion-icon>
+          Iniciar Cámara
+        </ion-button>
 
-      <div class="targets-preview">
-        <span class="badge">HIRO</span>
-        <span class="badge">KANJI</span>
-        <span class="badge">BARCODE</span>
+        <ion-button class="add-btn button-large" expand="block" (click)="addTarget()">
+          <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+          Nuevo Target
+        </ion-button>
+
+        <div class="helper-link">
+          <a href="/assets/barcodes.html" target="_blank">Obtener Códigos de Barras</a>
+        </div>
       </div>
 
-      <ion-button class="start-btn" expand="block" (click)="openAR()">
-        <ion-icon slot="start" name="scan-outline"></ion-icon>
-        INITIALIZE SCAN
-      </ion-button>
-
-      <ion-button fill="outline" color="secondary" expand="block" style="margin-top: 10px;" (click)="addTarget()">
-        <ion-icon slot="start" name="add-circle"></ion-icon>
-        ADD NEW TARGET
-      </ion-button>
-
-      <div style="margin-top: 20px;">
-        <a href="/assets/barcodes.html" target="_blank"
-          style="color: var(--ion-color-primary); text-decoration: none; font-size: 0.8rem; border: 1px solid var(--ion-color-primary); padding: 5px 10px;">
-          [ GET MARKERS ]
-        </a>
-      </div>
     </div>
   </div>
 

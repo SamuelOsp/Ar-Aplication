@@ -1,188 +1,90 @@
-.ar-background {
-  --background: transparent;
-  /* Subtle Tech Grid Background */
-  background-image:
-    linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
-.hud-container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  padding: 20px;
+.home-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  height: 100%;
+  padding: var(--app-padding);
+  justify-content: space-between;
+  safe-area-inset-bottom: env(safe-area-inset-bottom);
 }
 
-/* HUD Corners - Static & Sharp */
-.corner {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  border: 2px solid var(--ion-color-primary);
-  box-shadow: 0 0 10px var(--ion-color-primary);
-  opacity: 0.8;
-  transition: all 0.3s ease;
+.header-section {
+  margin-top: 60px;
+  text-align: left;
 }
 
-.top-left {
-  top: 30px;
-  left: 30px;
-  border-right: none;
-  border-bottom: none;
-  border-top-left-radius: 15px;
-}
-
-.top-right {
-  top: 30px;
-  right: 30px;
-  border-left: none;
-  border-bottom: none;
-  border-top-right-radius: 15px;
-}
-
-.bottom-left {
-  bottom: 30px;
-  left: 30px;
-  border-right: none;
-  border-top: none;
-  border-bottom-left-radius: 15px;
-}
-
-.bottom-right {
-  bottom: 30px;
-  right: 30px;
-  border-left: none;
-  border-top: none;
-  border-bottom-right-radius: 15px;
-}
-
-/* Center Content with Glassmorphism */
-.content-center {
-  z-index: 10;
-  text-align: center;
-  width: 100%;
-  max-width: 400px;
-  background: rgba(5, 5, 16, 0.6);
-  /* Semi-transparent dark */
-  backdrop-filter: blur(10px);
-  /* Glass effect */
-  -webkit-backdrop-filter: blur(10px);
-  padding: 40px;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 243, 255, 0.2);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-}
-
-.logo-container {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.ar-logo {
-  font-size: 90px;
-  color: var(--ion-color-primary);
-  filter: drop-shadow(0 0 15px var(--ion-color-primary));
-}
-
-/* Static Pulse Ring (Subtle Glow) */
-.pulse-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120px;
-  height: 120px;
-  border: 1px solid var(--ion-color-primary);
-  border-radius: 50%;
-  opacity: 0.3;
-  box-shadow: 0 0 20px var(--ion-color-primary);
-}
-
-.glitch-text {
-  font-size: 3.5rem;
-  font-weight: 900;
-  letter-spacing: 4px;
-  color: #fff;
-  text-shadow: 0 0 10px var(--ion-color-primary);
+.app-title {
+  font-size: 42px;
+  font-weight: 800;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* Modern clean font */
+  background: linear-gradient(45deg, var(--ion-text-color), var(--ion-color-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.status-text {
-  color: var(--ion-color-secondary);
-  font-size: 1rem;
-  letter-spacing: 3px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  font-weight: bold;
+.app-subtitle {
+  font-size: 18px;
+  color: var(--ion-color-medium);
+  margin-top: 8px;
+  opacity: 0.7;
 }
 
-.targets-preview {
+.stats-card {
+  background: rgba(var(--ion-color-secondary-rgb), 0.1);
+  padding: 20px;
+  border-radius: var(--card-radius);
+  margin-top: 30px;
   display: flex;
-  justify-content: center;
+  align-items: center;
   gap: 15px;
+}
+
+.stats-icon {
+  font-size: 32px;
+  color: var(--ion-color-secondary);
+}
+
+.stats-info h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.stats-info p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   margin-bottom: 40px;
 }
 
-.badge {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--ion-color-primary);
-  color: #fff;
-  padding: 8px 12px;
-  font-size: 0.75rem;
-  border-radius: 8px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Modern Glass Buttons */
 .start-btn {
-  --background: linear-gradient(135deg, var(--ion-color-primary), var(--ion-color-tertiary));
-  --border-radius: 12px;
-  --box-shadow: 0 4px 15px rgba(0, 243, 255, 0.4);
-  --color: #000;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin-top: 20px;
-  height: 60px;
-  font-size: 1.1rem;
-  transition: transform 0.2s;
+  --background: var(--ion-text-color);
+  --color: var(--ion-background-color);
+  margin: 0;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.start-btn:active {
-  transform: scale(0.98);
+.add-btn {
+  --background: transparent;
+  --color: var(--ion-text-color);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-width: 1px;
+  --border-style: solid;
+  margin: 0;
 }
 
-/* Secondary Button (Add Target) */
-ion-button[fill="outline"] {
-  --border-color: var(--ion-color-secondary);
-  --color: var(--ion-color-secondary);
-  --border-radius: 12px;
-  --border-width: 2px;
-  margin-top: 15px;
-  height: 50px;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-/* Link Style */
-a {
-  display: inline-block;
+.helper-link {
+  text-align: center;
   margin-top: 10px;
-  color: rgba(255, 255, 255, 0.6) !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  transition: color 0.3s;
 }
 
-a:hover {
-  color: #fff !important;
-  border-color: #fff !important;
+.helper-link a {
+  color: var(--ion-color-medium);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
 }

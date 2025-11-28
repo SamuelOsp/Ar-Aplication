@@ -1,165 +1,100 @@
 /* ================================
-   GLOBAL STYLES - AR APP
-   Modern, Futuristic, Premium Design
+   GLOBAL STYLES - MODERN MINIMALIST
+   Clean, Functional, Mobile-First
    ================================ */
 
-/* --- Color Palette --- */
 :root {
-    --ion-color-primary: #00f3ff;
-    --ion-color-primary-rgb: 0, 243, 255;
-    --ion-color-primary-contrast: #000000;
-    --ion-color-primary-contrast-rgb: 0, 0, 0;
-    --ion-color-primary-shade: #00d6e0;
-    --ion-color-primary-tint: #1af4ff;
+    /* Modern Color Palette */
+    --ion-color-primary: #000000;
+    --ion-color-primary-rgb: 0, 0, 0;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #000000;
+    --ion-color-primary-tint: #1a1a1a;
 
-    --ion-color-secondary: #ff00ff;
-    --ion-color-secondary-rgb: 255, 0, 255;
-    --ion-color-secondary-contrast: #000000;
-    --ion-color-secondary-contrast-rgb: 0, 0, 0;
-    --ion-color-secondary-shade: #e000e0;
-    --ion-color-secondary-tint: #ff1aff;
+    --ion-color-secondary: #3880ff;
+    /* Standard iOS Blue */
+    --ion-color-secondary-rgb: 56, 128, 255;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
+    --ion-color-secondary-shade: #3171e0;
+    --ion-color-secondary-tint: #4c8dff;
 
-    --ion-color-tertiary: #7044ff;
-    --ion-color-tertiary-rgb: 112, 68, 255;
-    --ion-color-tertiary-contrast: #ffffff;
-    --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-    --ion-color-tertiary-shade: #633ce0;
-    --ion-color-tertiary-tint: #7e57ff;
+    --ion-background-color: #ffffff;
+    --ion-background-color-rgb: 255, 255, 255;
+    --ion-text-color: #1c1c1e;
+    --ion-text-color-rgb: 28, 28, 30;
 
-    --ion-background-color: #000000;
-    --ion-background-color-rgb: 0, 0, 0;
-
-    --ion-text-color: #ffffff;
-    --ion-text-color-rgb: 255, 255, 255;
-
-    --ion-card-background: rgba(10, 10, 20, 0.8);
+    /* Spacing & Layout */
+    --app-padding: 20px;
+    --card-radius: 16px;
+    --btn-radius: 12px;
 }
 
-/* --- Typography --- */
+/* Dark Mode Support (System Preference) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ion-background-color: #000000;
+        --ion-background-color-rgb: 0, 0, 0;
+        --ion-text-color: #ffffff;
+        --ion-text-color-rgb: 255, 255, 255;
+        --ion-color-primary: #ffffff;
+        --ion-color-primary-contrast: #000000;
+    }
+}
+
+/* Typography */
 * {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-        'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* --- Smooth Transitions --- */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
-/* --- Global Background --- */
+/* Global Elements */
 ion-content {
-    --background: linear-gradient(135deg, #0a0a14 0%, #000000 100%);
+    --background: var(--ion-background-color);
 }
 
-/* --- Buttons Global Style --- */
+/* Modern Buttons */
 ion-button {
-    --border-radius: 12px;
+    --border-radius: var(--btn-radius);
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+    text-transform: none;
+    /* No uppercase */
+    letter-spacing: 0;
 }
 
-ion-button:not([fill="clear"]):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 243, 255, 0.3);
+ion-button.button-large {
+    height: 56px;
+    font-size: 18px;
 }
 
-ion-button:active {
-    transform: translateY(0);
-}
-
-/* --- Cards --- */
+/* Cards */
 ion-card {
-    background: var(--ion-card-background);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 243, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border-radius: var(--card-radius);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    background: var(--ion-background-color);
+    margin: 16px 0;
 }
 
-/* --- Inputs & Forms --- */
-ion-input,
-ion-textarea {
-    --background: rgba(255, 255, 255, 0.05);
-    --border-color: rgba(0, 243, 255, 0.3);
-    --border-radius: 8px;
-    --padding-start: 16px;
-    --padding-end: 16px;
+/* Inputs */
+ion-item {
+    --background: transparent;
+    --border-color: rgba(0, 0, 0, 0.1);
 }
 
-ion-input:focus-within,
-ion-textarea:focus-within {
-    --border-color: var(--ion-color-primary);
-    --background: rgba(255, 255, 255, 0.08);
+ion-input {
+    --padding-start: 0;
 }
 
-/* --- Alert Dialogs --- */
+/* Alerts */
 .alert-wrapper {
-    background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%) !important;
-    border: 1px solid rgba(0, 243, 255, 0.3);
-    box-shadow: 0 0 40px rgba(0, 243, 255, 0.2);
-}
-
-.alert-head {
-    color: var(--ion-color-primary) !important;
-}
-
-.alert-message {
-    color: rgba(255, 255, 255, 0.9) !important;
-}
-
-.alert-button {
-    color: var(--ion-color-primary) !important;
-    font-weight: 600 !important;
-}
-
-/* --- Toast Notifications --- */
-.toast-wrapper {
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-}
-
-/* --- Loading Spinner --- */
-.loading-wrapper {
-    background: rgba(0, 0, 0, 0.9) !important;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 243, 255, 0.3);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
-}
-
-/* --- Scrollbar Styling --- */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--ion-color-primary), var(--ion-color-secondary));
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--ion-color-primary);
-}
-
-/* --- Utility Classes --- */
-.text-gradient {
-    background: linear-gradient(90deg, var(--ion-color-primary), var(--ion-color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.glow {
-    box-shadow: 0 0 20px var(--ion-color-primary);
-}
-
-.glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
 }

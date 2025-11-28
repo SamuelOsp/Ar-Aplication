@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html>
-<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>AR View</title>
+    
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
-<body style="margin: 0px; overflow: hidden;">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: transparent !important;
+            background: transparent !important;
+            overflow: hidden;
+        }
+
+
+        #arjs-video {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            z-index: -1 !important;
+            margin: 0 !important;
+        }
+        
+        canvas.a-canvas {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            z-index: 1 !important;
+        }
+    </style>
+</head>
+
+<body style="margin: 0px; overflow: hidden; background: transparent;">
     <script>
-        // ---------------------------------------------------------
-        // CONFIGURACIÓN: Carga dinámica desde LocalStorage
-        // ---------------------------------------------------------
         const defaultTargets = [];
-
-        // Intentar cargar desde la memoria del teléfono (LocalStorage)
-        // Si no hay nada, usar los por defecto (vacío).
         const storedTargets = localStorage.getItem('arTargets');
         const targets = storedTargets ? JSON.parse(storedTargets) : defaultTargets;
 
-        // ---------------------------------------------------------
-        // LÓGICA: Generación Automática (No tocar)
-        // ---------------------------------------------------------
         AFRAME.registerComponent('scene-generator', {
             init: function () {
                 const scene = this.el;
-                console.log('Generando ' + targets.length + ' targets dinámicamente...');
+                
+                // Hack para corregir el tamaño al iniciar en móviles
+                window.addEventListener('resize', () => {
+                    scene.resize();
+                });
 
                 targets.forEach(target => {
                     let marker;
-
-                    // 1. Crear el Marcador
                     if (target.markerType === 'barcode') {
                         marker = document.createElement('a-marker');
                         marker.setAttribute('type', 'barcode');
@@ -36,7 +68,6 @@
                         marker.setAttribute('preset', target.markerType);
                     }
 
-                    // 2. Crear el Contenido
                     let contentElement;
                     const c = target.content;
 
@@ -47,25 +78,16 @@
                         contentElement.setAttribute('width', '2');
                         contentElement.setAttribute('height', '2');
                     } else {
-                        // Para figuras geométricas (box, sphere, cylinder, etc)
                         contentElement = document.createElement('a-' + c.type);
                         contentElement.setAttribute('position', '0 0.5 0');
-
-                        // Asignar atributos dinámicamente (color, radius, etc)
                         Object.keys(c).forEach(key => {
                             if (key !== 'type') {
-                                if (key === 'animation') {
-                                    contentElement.setAttribute('animation', c[key]);
-                                } else if (key === 'material') {
-                                    contentElement.setAttribute('material', c[key]);
-                                } else {
-                                    contentElement.setAttribute(key, c[key]);
-                                }
+                                if (key === 'animation') contentElement.setAttribute('animation', c[key]);
+                                else if (key === 'material') contentElement.setAttribute('material', c[key]);
+                                else contentElement.setAttribute(key, c[key]);
                             }
                         });
                     }
-
-                    // 3. Unir y agregar a la escena
                     marker.appendChild(contentElement);
                     scene.appendChild(marker);
                 });
@@ -73,10 +95,15 @@
         });
     </script>
 
-    <a-scene embedded scene-generator
-        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;'>
+    <a-scene 
+        embedded 
+        scene-generator 
+        vr-mode-ui="enabled: false"
+        renderer="logarithmicDepthBuffer: true; alpha: true; antialias: true;"
+        arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3; sourceWidth:1280; sourceHeight:960; displayWidth: auto; displayHeight: auto;'>
+        
         <a-entity camera></a-entity>
+    
     </a-scene>
 </body>
-
 </html>

@@ -30,53 +30,58 @@ export class HomePage implements OnInit {
    * Initialize component and auto-assign images from Supabase
    */
   async ngOnInit() {
-    await this.autoAssignImagesFromSupabase();
+    // Always try to sync on load to ensure fresh data from Supabase
+    await this.syncTargetsFromSupabase();
   }
 
   /**
-   * Auto-assign Supabase images to existing targets (by order)
+   * Sync images from Supabase and map them to barcodes
    * @private
    */
-  private async autoAssignImagesFromSupabase(): Promise<void> {
+  private async syncTargetsFromSupabase(): Promise<void> {
+    const loading = await this.loadingController.create({
+      message: 'Sincronizando targets...',
+      spinner: 'crescent',
+      duration: 5000 // Timeout safety
+    });
+    await loading.present();
+
     try {
-      console.log('🔍 Checking for Supabase images...');
+      console.log('🔄 Starting Supabase sync...');
 
       // Fetch all images from Supabase
       const images = await this.storageService.listImages();
-      console.log('📸 Images found in Supabase:', images.length);
+      console.log(`📸 Found ${images.length} images in cloud`);
 
       if (images.length === 0) {
-        console.log('⚠️ No images in Supabase bucket');
+        console.log('⚠️ No images found in Supabase');
+        await loading.dismiss();
         return;
       }
 
-      // Get existing targets
-      const existingData = localStorage.getItem(LOCAL_STORAGE_KEYS.AR_TARGETS);
-      let targets: ARTarget[] = existingData ? JSON.parse(existingData) : [];
-      console.log('💾 Existing targets in localStorage:', targets.length);
-
-      // Create default target codes (starting from 0)
-      const autoTargets: ARTarget[] = images.map((image: { name: string; signedUrl: string; path: string }, index: number) => ({
+      // Map images to Barcode Targets (0 to N)
+      // This REPLACES local targets to ensure Supabase is the source of truth
+      const autoTargets: ARTarget[] = images.map((image, index) => ({
         markerType: MarkerType.BARCODE,
-        value: index,
+        value: index, // Auto-increment barcode ID
         content: {
           type: ContentType.IMAGE,
           src: image.signedUrl
         }
       }));
 
-      console.log('✅ Auto-generated targets:', autoTargets);
-
-      // Save to localStorage (replace all)
+      // Save to localStorage
       localStorage.setItem(LOCAL_STORAGE_KEYS.AR_TARGETS, JSON.stringify(autoTargets));
+      console.log(`✅ Synced ${autoTargets.length} targets from cloud`);
 
-      console.log(`✨ Auto-assigned ${autoTargets.length} images to targets (codes 0-${autoTargets.length - 1})`);
+      // Optional: Show toast only if changes were made or on first load
+      // await this.showToast(`${autoTargets.length} targets sincronizados`, 'success');
 
-      // Show success toast
-      await this.showToast(`${autoTargets.length} marcadores creados automáticamente`, 'success');
     } catch (error) {
-      console.error('❌ Auto-assignment failed:', error);
-      await this.showToast('Error al cargar imágenes de Supabase', 'danger');
+      console.error('❌ Sync failed:', error);
+      await this.showToast('Error de conexión con Supabase', 'danger');
+    } finally {
+      await loading.dismiss();
     }
   }
 
