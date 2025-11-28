@@ -1,0 +1,11 @@
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+[1m[31m
+Error: [96msrc/app/pages/login/login.module.ts[0m:[93m19[0m:[93m18[0m - [91merror[0m[90m NG6008: [0mComponent LoginPage is standalone, and cannot be declared in an NgModule. Did you mean to import it instead?
+
+[7m19[0m   declarations: [LoginPage]
+[7m  [0m [91m                 ~~~~~~~~~[0m
+
+
+[39m[22m

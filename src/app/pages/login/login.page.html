@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+  <div class="login-container">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">{{ isLogin ? 'Login' : 'Register' }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="submit()">
+          <ion-item lines="full" class="ion-margin-bottom">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="error-message">
+            <ion-text color="danger">
+              <small>Please enter a valid email.</small>
+            </ion-text>
+          </div>
+
+          <ion-item lines="full" class="ion-margin-bottom">
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error-message">
+            <ion-text color="danger">
+              <small>Password must be at least 6 characters.</small>
+            </ion-text>
+          </div>
+
+          <ion-button expand="block" type="submit" [disabled]="!loginForm.valid" class="ion-margin-top submit-btn">
+            {{ isLogin ? 'Login' : 'Register' }}
+          </ion-button>
+
+          <ion-button expand="block" fill="clear" (click)="toggleMode()" class="ion-margin-top toggle-btn">
+            {{ isLogin ? 'Create an account' : 'Already have an account? Login' }}
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

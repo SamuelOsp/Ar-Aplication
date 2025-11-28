@@ -1,0 +1,84 @@
+- Generating browser application bundles (phase: setup)...
+✔ Browser application bundle generation complete.
+✔ Browser application bundle generation complete.
+- Copying assets...
+✔ Copying assets complete.
+- Generating index html...
+✔ Index html generation complete.
+
+[1mInitial chunk files[22m                                                                                    [2m | [22m[1mNames[22m                   [2m | [22m [1mRaw size[22m
+[32mvendor.js[39m                                                                                              [2m | [22m[2mvendor[22m                  [2m | [22m  [36m4.41 MB[39m[2m | [22m
+[32mpolyfills.js[39m                                                                                           [2m | [22m[2mpolyfills[22m               [2m | [22m[36m119.53 kB[39m[2m | [22m
+[32mmain.js[39m                                                                                                [2m | [22m[2mmain[22m                    [2m | [22m [36m16.31 kB[39m[2m | [22m
+[32mruntime.js[39m                                                                                             [2m | [22m[2mruntime[22m                 [2m | [22m [36m14.31 kB[39m[2m | [22m
+[32mstyles.css[39m                                                                                             [2m | [22m[2mstyles[22m                  [2m | [22m  [36m4.17 kB[39m[2m | [22m
+
+[1m [22m                                                                                                      [2m | [22m[1mInitial total[22m           [2m | [22m  [1m4.56 MB[22m
+
+[1mLazy chunk files[22m                                                                                       [2m | [22m[1mNames[22m                   [2m | [22m [1mRaw size[22m
+[32msrc_app_home_home_module_ts.js[39m                                                                         [2m | [22m[2mhome-home-module[22m        [2m | [22m[36m746.56 kB[39m[2m | [22m
+[32mdefault-src_app_services_auth_service_ts.js[39m                                                            [2m | [22m[2mhome-home-module[22m        [2m | [22m[36m701.32 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-datetime_3_entry_js.js[39m                                            [2m | [22m[2m-[22m                       [2m | [22m[36m157.59 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-modal_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m[36m115.17 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-app_8_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m87.19 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-select_3_entry_js.js[39m                                              [2m | [22m[2m-[22m                       [2m | [22m [36m82.29 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-item_8_entry_js.js[39m                                                [2m | [22m[2m-[22m                       [2m | [22m [36m70.61 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-popover_entry_js.js[39m                                               [2m | [22m[2m-[22m                       [2m | [22m [36m65.48 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-textarea_entry_js.js[39m                                              [2m | [22m[2m-[22m                       [2m | [22m [36m64.20 kB[39m[2m | [22m
+[32mcommon.js[39m                                                                                              [2m | [22m[2mcommon[22m                  [2m | [22m [36m60.38 kB[39m[2m | [22m
+[32mdefault-node_modules_ionic_core_dist_esm_data-DCORV9FH_js.js[39m                                           [2m | [22m[2m-[22m                       [2m | [22m [36m60.13 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-refresher_2_entry_js.js[39m                                           [2m | [22m[2m-[22m                       [2m | [22m [36m60.07 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-input_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m59.70 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-alert_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m56.03 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-range_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m51.20 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-menu_3_entry_js.js[39m                                                [2m | [22m[2m-[22m                       [2m | [22m [36m50.09 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-segment_2_entry_js.js[39m                                             [2m | [22m[2m-[22m                       [2m | [22m [36m49.30 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-toast_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m49.18 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-button_2_entry_js.js[39m                                              [2m | [22m[2m-[22m                       [2m | [22m [36m44.78 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-input-otp_entry_js.js[39m                                             [2m | [22m[2m-[22m                       [2m | [22m [36m42.14 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-nav_2_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m38.92 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-searchbar_entry_js.js[39m                                             [2m | [22m[2m-[22m                       [2m | [22m [36m38.83 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-item-option_3_entry_js.js[39m                                         [2m | [22m[2m-[22m                       [2m | [22m [36m36.19 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-action-sheet_entry_js.js[39m                                          [2m | [22m[2m-[22m                       [2m | [22m [36m35.83 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-toggle_entry_js.js[39m                                                [2m | [22m[2m-[22m                       [2m | [22m [36m35.21 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-route_4_entry_js.js[39m                                               [2m | [22m[2m-[22m                       [2m | [22m [36m34.99 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_components_ios_transition_js.js[39m                                                [2m | [22m[2mios-transition-js[22m       [2m | [22m [36m34.98 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-radio_2_entry_js.js[39m                                               [2m | [22m[2m-[22m                       [2m | [22m [36m34.27 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-accordion_2_entry_js.js[39m                                           [2m | [22m[2m-[22m                       [2m | [22m [36m32.79 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_input-shims-DyOpfTg6_js.js[39m                                            [2m | [22m[2minput-shims-DyOpfTg6-js[22m [2m | [22m [36m29.63 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-picker-column_entry_js.js[39m                                         [2m | [22m[2m-[22m                       [2m | [22m [36m29.31 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-fab_3_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m28.47 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-checkbox_entry_js.js[39m                                              [2m | [22m[2m-[22m                       [2m | [22m [36m26.89 kB[39m[2m | [22m
+[32mdefault-node_modules_ionic_core_components_animation_js.js[39m                                             [2m | [22m[2mios-transition-js[22m       [2m | [22m [36m25.05 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-tab-bar_2_entry_js.js[39m                                             [2m | [22m[2m-[22m                       [2m | [22m [36m24.84 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-picker_entry_js.js[39m                                                [2m | [22m[2m-[22m                       [2m | [22m [36m24.74 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-breadcrumb_2_entry_js.js[39m                                          [2m | [22m[2m-[22m                       [2m | [22m [36m22.93 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-progress-bar_entry_js.js[39m                                          [2m | [22m[2m-[22m                       [2m | [22m [36m22.88 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-datetime-button_entry_js.js[39m                                       [2m | [22m[2m-[22m                       [2m | [22m [36m21.03 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-loading_entry_js.js[39m                                               [2m | [22m[2m-[22m                       [2m | [22m [36m20.33 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-card_5_entry_js.js[39m                                                [2m | [22m[2m-[22m                       [2m | [22m [36m16.28 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-back-button_entry_js.js[39m                                           [2m | [22m[2m-[22m                       [2m | [22m [36m16.12 kB[39m[2m | [22m
+[32msrc_app_pages_login_login_module_ts.js[39m                                                                 [2m | [22m[2mpages-login-login-module[22m[2m | [22m [36m15.42 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-infinite-scroll_2_entry_js.js[39m                                     [2m | [22m[2m-[22m                       [2m | [22m [36m15.23 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-reorder_2_entry_js.js[39m                                             [2m | [22m[2m-[22m                       [2m | [22m [36m15.06 kB[39m[2m | [22m
+[32mdefault-node_modules_ionic_core_dist_esm_input_utils-DrvTa8gz_js-node_modules_ionic_core_dist-772781.js[39m[2m | [22m[2m-[22m                       [2m | [22m [36m13.36 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-col_3_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m13.30 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-tab_2_entry_js.js[39m                                                 [2m | [22m[2m-[22m                       [2m | [22m [36m11.94 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-select-modal_entry_js.js[39m                                          [2m | [22m[2m-[22m                       [2m | [22m  [36m9.86 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-spinner_entry_js.js[39m                                               [2m | [22m[2m-[22m                       [2m | [22m  [36m8.73 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-chip_entry_js.js[39m                                                  [2m | [22m[2m-[22m                       [2m | [22m  [36m8.33 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-split-pane_entry_js.js[39m                                            [2m | [22m[2m-[22m                       [2m | [22m  [36m7.74 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-ripple-effect_entry_js.js[39m                                         [2m | [22m[2m-[22m                       [2m | [22m  [36m6.90 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-segment-view_entry_js.js[39m                                          [2m | [22m[2m-[22m                       [2m | [22m  [36m6.69 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-picker-column-option_entry_js.js[39m                                  [2m | [22m[2m-[22m                       [2m | [22m  [36m6.40 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_index-ceb5RaMT_js.js[39m                                                  [2m | [22m[2mindex-ceb5RaMT-js[22m       [2m | [22m  [36m6.11 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-avatar_3_entry_js.js[39m                                              [2m | [22m[2m-[22m                       [2m | [22m  [36m5.93 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-input-password-toggle_entry_js.js[39m                                 [2m | [22m[2m-[22m                       [2m | [22m  [36m5.34 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-img_entry_js.js[39m                                                   [2m | [22m[2m-[22m                       [2m | [22m  [36m4.74 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-backdrop_entry_js.js[39m                                              [2m | [22m[2m-[22m                       [2m | [22m  [36m3.16 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_components_md_transition_js.js[39m                                                 [2m | [22m[2mmd-transition-js[22m        [2m | [22m  [36m3.05 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_status-tap-5DQ7Fc4V_js.js[39m                                             [2m | [22m[2mstatus-tap-5DQ7Fc4V-js[22m  [2m | [22m  [36m2.88 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-text_entry_js.js[39m                                                  [2m | [22m[2m-[22m                       [2m | [22m  [36m1.92 kB[39m[2m | [22m
+[32mnode_modules_ionic_core_dist_esm_ion-segment-content_entry_js.js[39m                                       [2m | [22m[2m-[22m                       [2m | [22m  [36m1.74 kB[39m[2m | [22m
+
+Build at: 2025-11-28T22:04:32.038Z - Hash: 004c41ab394782a4 - Time: 25903ms

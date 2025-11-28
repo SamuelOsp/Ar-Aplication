@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController, LoadingController, ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { ArLauncherPage } from '../pages/ar-launcher/ar-launcher.page';
 import { StorageService } from '../core/services/storage.service';
+import { AuthService } from '../services/auth.service';
 import { ARTarget, MarkerType, ContentType } from '../models/ar-target.model';
 import { LOCAL_STORAGE_KEYS } from '../constants/storage.constants';
 
@@ -23,7 +25,9 @@ export class HomePage implements OnInit {
     private readonly alertController: AlertController,
     private readonly loadingController: LoadingController,
     private readonly toastController: ToastController,
-    private readonly storageService: StorageService
+    private readonly storageService: StorageService,
+    private readonly authService: AuthService,
+    private readonly router: Router
   ) { }
 
   /**
@@ -97,6 +101,19 @@ export class HomePage implements OnInit {
     });
 
     await modal.present();
+  }
+
+  /**
+   * Logout user
+   */
+  public async logout(): Promise<void> {
+    try {
+      await this.authService.logout();
+      this.router.navigate(['/login'], { replaceUrl: true });
+    } catch (error) {
+      console.error('Logout error:', error);
+      await this.showToast('Error al cerrar sesión', 'danger');
+    }
   }
 
   /**

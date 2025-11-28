@@ -13,7 +13,12 @@
 
       <!-- Header Section -->
       <div class="header-section">
-        <h1 class="app-title">AR Core</h1>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h1 class="app-title">AR Core</h1>
+          <ion-button fill="clear" (click)="logout()" color="light">
+            <ion-icon name="log-out-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </div>
         <p class="app-subtitle">Realidad Aumentada Dinámica</p>
 
         <!-- Status Card -->
