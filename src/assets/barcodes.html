@@ -103,16 +103,12 @@
     <button class="refresh-btn" onclick="loadTargets()">🔄 ACTUALIZAR</button>
 
     <div class="container" id="markers-container">
-        <!-- Los marcadores se generan aquí dinámicamente -->
     </div>
 
     <script>
         const LOCAL_STORAGE_KEY = 'arTargets';
         const BARCODE_BASE_URL = 'https://raw.githubusercontent.com/nicolocarpignoli/artoolkit-barcode-markers-collection/master/3x3/';
 
-        /**
-         * Cargar targets desde localStorage y renderizar
-         */
         function loadTargets() {
             const container = document.getElementById('markers-container');
             const storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -130,16 +126,13 @@
                 return;
             }
 
-            // Ordenar por valor de código
+           
             barcodeTargets.sort((a, b) => a.value - b.value);
 
-            // Renderizar marcadores
+          
             container.innerHTML = barcodeTargets.map(target => createMarkerCard(target)).join('');
         }
 
-        /**
-         * Crear tarjeta HTML para un marcador
-         */
         function createMarkerCard(target) {
             const imageUrl = `${BARCODE_BASE_URL}${target.value}.png`;
             const contentType = target.content.type;
@@ -158,9 +151,7 @@
             `;
         }
 
-        /**
-         * Generar descripción del contenido AR
-         */
+   
         function getContentDescription(content) {
             if (content.type === 'image') {
                 return `<strong>Imagen:</strong> ${getFilename(content.src)}`;
@@ -171,18 +162,13 @@
             }
         }
 
-        /**
-         * Extraer nombre de archivo de una URL
-         */
         function getFilename(url) {
             if (!url) return 'N/A';
             const parts = url.split('/');
             return parts[parts.length - 1].split('?')[0];
         }
 
-        /**
-         * Mostrar mensaje cuando no hay marcadores
-         */
+     
         function showEmptyState(container) {
             container.innerHTML = `
                 <div class="empty-state">
@@ -192,10 +178,10 @@
             `;
         }
 
-        // Cargar al inicio
+       
         loadTargets();
 
-        // Auto-refresh cada 5 segundos (opcional)
+       
         setInterval(loadTargets, 5000);
     </script>
 </body>

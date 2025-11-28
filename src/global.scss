@@ -1,10 +1,5 @@
-/* ================================
-   GLOBAL STYLES - MODERN MINIMALIST
-   Clean, Functional, Mobile-First
-   ================================ */
-
 :root {
-    /* Modern Color Palette */
+    
     --ion-color-primary: #000000;
     --ion-color-primary-rgb: 0, 0, 0;
     --ion-color-primary-contrast: #ffffff;
@@ -13,7 +8,7 @@
     --ion-color-primary-tint: #1a1a1a;
 
     --ion-color-secondary: #3880ff;
-    /* Standard iOS Blue */
+   
     --ion-color-secondary-rgb: 56, 128, 255;
     --ion-color-secondary-contrast: #ffffff;
     --ion-color-secondary-contrast-rgb: 255, 255, 255;
@@ -25,13 +20,13 @@
     --ion-text-color: #1c1c1e;
     --ion-text-color-rgb: 28, 28, 30;
 
-    /* Spacing & Layout */
+   
     --app-padding: 20px;
     --card-radius: 16px;
     --btn-radius: 12px;
 }
 
-/* Dark Mode Support (System Preference) */
+
 @media (prefers-color-scheme: dark) {
     :root {
         --ion-background-color: #000000;
@@ -43,7 +38,7 @@
     }
 }
 
-/* Typography */
+
 * {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
@@ -55,18 +50,18 @@ h3 {
     letter-spacing: -0.5px;
 }
 
-/* Global Elements */
+
 ion-content {
     --background: var(--ion-background-color);
 }
 
-/* Modern Buttons */
+
 ion-button {
     --border-radius: var(--btn-radius);
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-weight: 600;
     text-transform: none;
-    /* No uppercase */
+    
     letter-spacing: 0;
 }
 
@@ -75,7 +70,7 @@ ion-button.button-large {
     font-size: 18px;
 }
 
-/* Cards */
+
 ion-card {
     border-radius: var(--card-radius);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
@@ -83,7 +78,7 @@ ion-card {
     margin: 16px 0;
 }
 
-/* Inputs */
+
 ion-item {
     --background: transparent;
     --border-color: rgba(0, 0, 0, 0.1);
@@ -93,7 +88,7 @@ ion-input {
     --padding-start: 0;
 }
 
-/* Alerts */
+
 .alert-wrapper {
     border-radius: 20px !important;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;

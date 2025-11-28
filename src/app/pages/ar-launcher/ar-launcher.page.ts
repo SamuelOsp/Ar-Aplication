@@ -18,8 +18,6 @@ export class ArLauncherPage implements OnInit {
   constructor(private modalCtrl: ModalController, private sanitizer: DomSanitizer) { }
 
   async ngOnInit() {
-    // Request permission but don't block if it fails or returns denied
-    // The WebView might still be able to handle it via WebChromeClient
     await this.checkCameraPermission();
 
     this.permissionGranted = true;
